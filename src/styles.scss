@@ -1,1 +1,49 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.layout__textarea {
+  .mat-form-field {
+    flex: 1;
+    .mat-form-field-wrapper,
+    .mat-form-field-flex,
+    .mat-form-field-infix {
+      height: 100%;
+    }
+    textarea {
+      height: 95%;
+      resize: none;
+    }
+    .mat-form-field-wrapper {
+      padding-bottom: 0;
+    }
+    .mat-form-field-underline {
+      display: none;
+    }
+  }
+  .mat-raised-button {
+    margin-top: 15px;
+    height: 50px;
+  }
+}
+
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  background: white;
+  border-radius: 8px !important;
+}
+
+
+.bottom-space {
+  padding-bottom: 1.34375em;
+}

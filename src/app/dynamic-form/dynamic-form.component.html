@@ -1,0 +1,29 @@
+<div class="form">
+  <form [formGroup]="dynamicForm" *ngIf="this.data">
+    <ng-container *ngFor="let field of data">
+      <ng-container [ngSwitch]="field.type">
+        <mat-form-field appearance="fill" *ngSwitchCase="'select'">
+          <mat-label>{{ field.title }}</mat-label>
+          <mat-select [formControlName]="field.fieldName">
+            <mat-option *ngFor="let o of field.options" [value]="o">
+              {{ o }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div class="bottom-space" *ngSwitchCase="'checkbox'">
+          <mat-checkbox [formControlName]="field.fieldName">{{ field.title }}</mat-checkbox>
+        </div>
+        <div class="bottom-space" *ngSwitchCase="'radio'">
+          <mat-radio-group [formControlName]="field.fieldName">
+            <mat-radio-button *ngFor="let o of field.values" [value]="o">{{o}}</mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <mat-form-field appearance="fill" *ngSwitchDefault>
+          <mat-label>{{ field.title }}</mat-label>
+          <input matInput [formControlName]="field.fieldName" />
+        </mat-form-field>
+      </ng-container>
+    </ng-container>
+    <button mat-raised-button color="primary" (click)="submit()">Submit to Console</button>
+  </form>
+</div>
